@@ -3,7 +3,7 @@ setup(
     name='distrdata',         # How you named your package folder (MyLib)
     packages=['distrdata'],   # Chose the same as "name"
     # Start with a small number and increase it with every change you make
-    version='1.0.0-alpha',
+    version='1.0.0',
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     license='MIT',
     # Give a short description about your library
