@@ -54,8 +54,8 @@ def generate_dataset(
         generator = func
 
     # generate the dataset
-    X = np.arange(*range_of_values)
-    y = np.array([generator(x) for x in X])
+    X = np.arange(*range_of_values, dtype=np.float)
+    y = np.array([generator(x) for x in X], dtype=np.float)
 
     # move to the
     # upper border
