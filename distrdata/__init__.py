@@ -1,4 +1,5 @@
 from ._generator_base import generate_dataset
+from ._generator_base import generate_window_dataset
 
 
 import scipy.stats as stats
