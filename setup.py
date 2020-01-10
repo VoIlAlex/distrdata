@@ -27,7 +27,7 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Scientific/Engineering',
         'License :: OSI Approved :: MIT License',   # Again, pick a license
-        # Specify which pyhton versions that you want to support
+        # Specify which python versions that you want to support
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
