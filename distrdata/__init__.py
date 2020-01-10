@@ -21,4 +21,12 @@ class _ScipyGenerator:
         return partial(generate_dataset, func=getattr(stats, attr_name))
 
 
+# To be used as module with `scipy` functions
+#
+# For example:
+# scipy.norm - points to generator, bound with norm function from scipy
+#
+# It binds the distrdata module to scipy module,
+# so it will work for new functionality if it appears
+# in scipy.
 scipy = _ScipyGenerator()
