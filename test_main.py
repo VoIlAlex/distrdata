@@ -32,6 +32,11 @@ class TestGeneratorBase:
         )
         assert data.shape == (100, 2)
 
+    def test_direct_scipy_access(self):
+        data = distrdata.scipy.norm(100, upper_border=10.0)
+        assert data.shape == (100, 2)
+        assert data[:, 1].max() == 10.0
+
 
 class TestGeneratorNorm:
     def test_generation(self):
