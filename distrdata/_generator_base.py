@@ -44,10 +44,13 @@ def generate_dataset(
         range_of_values = (range_of_values,)
 
     # get actual function-generator
-    generator = func(*args, **kwargs)
-    if hasattr(generator, 'pdf'):
-        generator = generator.pdf
-    else:
+    try:
+        generator = func(*args, **kwargs)
+        if hasattr(generator, 'pdf'):
+            generator = generator.pdf
+        else:
+            generator = func
+    except TypeError:
         generator = func
 
     # generate the dataset
