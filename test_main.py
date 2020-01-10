@@ -25,6 +25,13 @@ class TestGeneratorBase:
         )
         assert data[:, 1].max() == 10.0
 
+    def test_function_as_func_arg(self):
+        data = distrdata.generate_dataset(
+            100,
+            lambda x: x
+        )
+        assert data.shape == (100, 2)
+
 
 class TestGeneratorNorm:
     def test_generation(self):
