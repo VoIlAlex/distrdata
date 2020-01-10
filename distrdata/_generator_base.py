@@ -25,14 +25,17 @@ def generate_dataset(
     Arguments:
         range_of_values {[Iterable, int]} -- range of input values for the function
         func {callable} -- distribution function of the dataset
+        *args -- used by func if it's a functor
 
     Keyword Arguments:
         shuffle {bull} -- indicates whether the generated dataset must be shuffled (default: {False})
         noise_radius {int} -- radius of the noise added to the dataset (default: {0})
         upper_border {int} -- the maximum of the generated values (default: {None})
+        **kwargs -- used by func if it's a functor
 
     Returns:
         np.ndarray -- dataset with format [[x1, y1], [x2, y2], ... [xn, yn]]
+
     """
 
     # convert range of values
@@ -40,9 +43,16 @@ def generate_dataset(
     if not isinstance(range_of_values, Iterable):
         range_of_values = (range_of_values,)
 
+    # get actual function-generator
+    generator = func(*args, **kwargs)
+    if hasattr(generator, 'pdf'):
+        generator = generator.pdf
+    else:
+        generator = func
+
     # generate the dataset
     X = np.arange(*range_of_values)
-    y = np.array([func(*args, **kwargs).pdf(x) for x in X])
+    y = np.array([generator(x) for x in X])
 
     # move to the
     # upper border
