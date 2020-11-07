@@ -3,7 +3,7 @@
 """
 
 import numpy as np
-from collections.abc import Iterable
+from typing import Union, Iterable
 
 
 __all__ = [
@@ -12,7 +12,7 @@ __all__ = [
 
 
 def generate_dataset(
-        range_of_values: [Iterable, int],
+        range_of_values: Union[Iterable, int],
         func: callable,
         *args,
         shuffle=False,
@@ -23,7 +23,7 @@ def generate_dataset(
     Generates a dataset from the given distribution function.
 
     Arguments:
-        range_of_values {[Iterable, int]} -- range of input values for the function
+        range_of_values {tuple, int]} -- range of input values for the function
         func {callable} -- distribution function of the dataset
         *args -- used by func if it's a functor
 
